@@ -3,5 +3,12 @@ export interface Articulo {
     marca?: String; 
     precio: number; 
 
-    imprimir();
+    imprimir?;
+
+    title?: string;
+    description?: string;
+    promotion?:boolean;
+
+    categoria?:string;
+    url?: string;
 }

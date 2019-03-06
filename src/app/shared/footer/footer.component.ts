@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -17,7 +17,7 @@ export class FooterComponent implements OnInit {
 
   public promotion: boolean = true;
 
-  public color: boolean = false;
+  @Input ('color') color: boolean ;
 
   constructor() { }
 
