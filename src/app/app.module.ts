@@ -5,17 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArticulosComponent } from './pages/articulos/articulos.component';
 import {SharedModule} from './shared/shared.module';
+import { UppercasePipe } from './uppercase.pipe';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { AdminComponent } from './pages/admin/admin.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArticulosComponent
+    ArticulosComponent,
+    UppercasePipe,
+    AdminComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

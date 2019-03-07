@@ -1,4 +1,4 @@
 <div class="card-body">
-    <h5 class="card-title">{{description}}</h5>
-    <p class="card-text">{{precio}}</p>
+    <h5 class="card-title">{{description | case: 'upper' }}</h5>
+    <p class="card-text">{{precio | number:'0.1-2'}}</p>
 </div>

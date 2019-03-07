@@ -1,4 +1,5 @@
-<div class="card text-center">
+<div class="card text-center border-black" [ngClass]="{'border-black':border}">
+  Fecha: {{articulo.fecha | date:'dd-MM-yyyy hh:mm:ss a'}}
     <header [titulo]="articulo.title"></header>
     <header [categoria]="articulo.categoria"></header>
     
@@ -7,6 +8,6 @@
 
   <app-body [description]="articulo.description"></app-body>
   <app-body [precio]="articulo.precio"></app-body>
-  <app-footer [color]="articulo.promotion"></app-footer>
+  <app-footer (onEliminar)="accionEliminar($event)" (onSeleccionar)="accionSeleccionar($event)" [color]="articulo.promotion"></app-footer>
 
 </div>

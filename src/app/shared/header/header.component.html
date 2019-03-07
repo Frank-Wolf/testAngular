@@ -1,9 +1,10 @@
 <div class="card-header" [ngStyle]="style">
     {{ title }}
+    {{ categoria | traductor: 'ESP' }}
 
-    <div [ngSwitch]="categoria">
+   <!-- <div [ngSwitch]="categoria">
         <p *ngSwitchCase="'E'">Electrónico</p>
         <p *ngSwitchCase="'A'">Abarrotes</p>
-    </div>
+    </div>-->
 
 </div>

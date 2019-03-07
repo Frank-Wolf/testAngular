@@ -11,4 +11,6 @@ export interface Articulo {
 
     categoria?:string;
     url?: string;
+    id?: number;
+    fecha?: Date;
 }
