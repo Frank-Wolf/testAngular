@@ -4,21 +4,31 @@
       <thead>
         <button (click)="nuevo(template)" class="btn btn-primary btn-xs pull-right"><b>+</b> Nuevo</button>
         <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Parent ID</th>
+          <th>Nombre</th>
+          <th>Marca</th>
+          <th>Precio</th>
+          <th>Título</th>
+          <th>Descripción</th>
+          <th>Promoción</th>
+          <th>Categoria</th>
           <th class="text-center">Action</th>
         </tr>
       </thead>
       <tr *ngFor="let articulo of articulos">
-        <td>{{articulo.id}}</td>
+          <td>{{articulo.nombre}}</td>
+          <td>{{articulo.marca}}</td>
+          <td>{{articulo.precio}}</td>
         <td>{{articulo.title}}</td>
         <td>{{articulo.description}}</td>
+        <td>{{articulo.promotion}}</td>
+        <td>{{articulo.categoria}}</td>
+       
         <td class="text-center">
-          <button class='btn btn-info btn-xs'><span class="glyphicon glyphicon-edit"></span>
+          <button (click)="editar(articulo,template)" class='btn btn-info btn-xs'><span class="glyphicon glyphicon-edit"></span>
             Editar
-          </button> 
-          <button (click)="borrar(articulo)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> 
+          </button>
+          <button (click)="borrar(articulo)" class="btn btn-danger btn-xs"><span
+              class="glyphicon glyphicon-remove"></span>
             Borrar
           </button>
         </td>
@@ -36,7 +46,69 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+
+
   <div class="modal-body">
-    <button (click)="agregar()">Agregar</button>
+      <div *ngIf="formArticulo.valid" class="alert alert-success" role="alert">
+          El formulario es correcto
+        </div>
+      <div *ngIf="!formArticulo.valid" class="alert alert-danger" role="alert">
+          El formulario no es correcto
+        </div>
+    <div [formGroup]="formArticulo">
+      <div class="form-group">
+        <label for="nombreInput">Nombre</label>
+        <input formControlName="nombre" type="text" class="form-control" id="nombreInput" aria-describedby="emailHelp"
+          placeholder="Nombre">
+      </div>
+      <div class="form-group">
+        <label for="marcaInput">Marca</label>
+        <input formControlName="marca" type="text" class="form-control" id="marcaInput" aria-describedby="emailHelp"
+          placeholder="Marca">
+      </div>
+      <div class="form-group">
+        <label for="precioInput">Precio</label>
+        <input formControlName="precio" type="text" class="form-control" id="precioInput" aria-describedby="emailHelp"
+          placeholder="Precio">
+      </div>
+      <div class="form-group">
+        <label for="tituloInput">Titulo</label>
+        <input formControlName="title" type="text" class="form-control" id="tituloInput" aria-describedby="emailHelp"
+          placeholder="Titulo">
+      </div>
+      <div class="form-group">
+        <label for="descripcionInput">Descripcion</label>
+        <input formControlName="description" type="text" class="form-control" id="descripcionInput" aria-describedby="emailHelp"
+          placeholder="Descripcion">
+      </div>
+      <div class="form-group">
+        <label for="promocionInput">Promoción</label>
+        <input formControlName="promotion" type="text" class="form-control" id="promocionInput" aria-describedby="emailHelp"
+          placeholder="Promoción">
+      </div>
+      <div class="form-group">
+        <label for="categoriaInput">Categoria</label>
+        <input formControlName="categoria" type="text" class="form-control" id="categoriaInput" aria-describedby="emailHelp"
+          placeholder="Categoria">
+      </div>
+      <div class="form-group">
+        <label for="urlInput">Url</label>
+        <input formControlName="url" type="text" class="form-control" id="urlInput" aria-describedby="emailHelp"
+          placeholder="Url">
+      </div>
+      <div class="form-group">
+        <label for="fechaInput">fecha</label>
+        <input formControlName="fecha" type="date" class="form-control" id="fechaInput" aria-describedby="emailHelp"
+          placeholder="Fecha">
+      </div>
+      <small *ngIf="formArticulo.get('nombre').errors?.required">Te falta el nombre chavo</small>
+
+
+
+      <button type="submit" class="btn btn-primary" (click)="agregar()">Agregar</button>
+
+    </div>
+
+
   </div>
 </ng-template>
