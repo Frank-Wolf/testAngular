@@ -36,4 +36,11 @@ export class ArticulosService {
       }
     }
   }
+
+  public get(id:number){
+    let articulo: Articulo = this.articulos.find((item:Articulo) => {
+      return item.id == id;
+    });
+    return articulo;
+  }
 }
